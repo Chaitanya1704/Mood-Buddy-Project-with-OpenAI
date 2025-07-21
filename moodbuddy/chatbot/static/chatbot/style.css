@@ -1,0 +1,117 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fef9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.container {
+    width: 500px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #ff6b6b;
+}
+
+textarea, select {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#chatOutput {
+    margin-top: 20px;
+    background-color: #fef1f1;
+    padding: 15px;
+    border-radius: 12px;
+    font-style: italic;
+}
+
+/* === Persona Themes === */
+
+body.gentle {
+    background-color: #fff5f7;
+}
+
+body.therapist {
+    background-color: #f0faff;
+}
+
+body.coach {
+    background-color: #fffde7;
+}
+
+.container.gentle {
+    border-left: 8px solid #f78da7;
+}
+
+.container.therapist {
+    border-left: 8px solid #84c5f7;
+}
+
+.container.coach {
+    border-left: 8px solid #ffcc00;
+}
+
+button.gentle {
+    background-color: #f78da7;
+}
+
+button.therapist {
+    background-color: #84c5f7;
+}
+
+button.coach {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+.persona-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.persona-box {
+    flex: 1;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.persona-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.persona-box.active {
+    border: 2px solid #ff6b6b;
+    background-color: #fff1f1;
+}

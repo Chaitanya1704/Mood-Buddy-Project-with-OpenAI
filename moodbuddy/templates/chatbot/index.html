@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MoodBuddy</title>
+    <link rel="stylesheet" href="{% static 'chatbot/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>MoodBuddy</h1>
+
+        <form id="chatForm" method="post">
+            {% csrf_token %}
+            <label for="persona">Choose your MoodBuddy:</label>
+            <div class="persona-options">
+                <div class="persona-box" data-persona="Gentle Friend">Gentle Friend</div>
+                <div class="persona-box" data-persona="Calm Therapist">Calm Therapist</div>
+                <div class="persona-box" data-persona="Uplifting Coach">Uplifting Coach</div>
+            </div>
+
+            <input type="hidden" id="persona" name="persona" value="Gentle Friend">
+
+            <label for="message">What's on your mind?</label>
+            <textarea id="message" name="message" placeholder="Type here..." required></textarea>
+            <button type="submit" class="gentle">Send</button>
+        </form>
+
+        <div id="chatOutput"></div>
+    </div>
+
+    <script>
+        const personaInput = document.getElementById("persona");
+        const boxes = document.querySelectorAll(".persona-box");
+        const container = document.querySelector(".container");
+        const button = document.querySelector("button");
+
+        const themeMap = {
+            "Gentle Friend": "gentle",
+            "Calm Therapist": "therapist",
+            "Uplifting Coach": "coach"
+        };
+
+        const applyTheme = (persona) => {
+            const theme = themeMap[persona];
+            document.body.className = theme;
+            container.className = `container ${theme}`;
+            button.className = theme;
+        };
+
+        boxes.forEach(box => {
+            box.addEventListener("click", () => {
+                boxes.forEach(b => b.classList.remove("active"));
+                box.classList.add("active");
+
+                const persona = box.getAttribute("data-persona");
+                personaInput.value = persona;
+                applyTheme(persona);
+            });
+        });
+
+        // Apply default theme on load
+        applyTheme(personaInput.value);
+        boxes[0].classList.add("active");
+
+        // CSRF token for Django
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const csrftoken = getCookie('csrftoken');
+
+        document.getElementById("chatForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            try {
+                const res = await fetch("/chat/", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": csrftoken
+                    },
+                    body: formData
+                });
+
+                if (!res.ok) throw new Error("Server error");
+
+                const data = await res.json();
+                document.getElementById("chatOutput").innerText = data.reply;
+            } catch (err) {
+                console.error("Error:", err);
+                document.getElementById("chatOutput").innerText = "Something went wrong. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>
