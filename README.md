@@ -54,7 +54,7 @@ Energizing and encouraging, this mode is best for celebrating wins or motivating
 
 A warm and caring tone for emotional support.
 
-![Gentle Friend Screenshot](https://github.com/rashmisjoshi/Mood-Buddy-Project-with-Open-AI-/blob/main/moodbuddy/1.%20Gentle%20Friend%20Screen.png)
+![Gentle Friend Screenshot](https://github.com/Chaitanya1704/Mood-Buddy-Project-with-OpenAI/blob/main/moodbuddy/Gental%20Friend.png)
 
 ---
 
@@ -62,7 +62,7 @@ A warm and caring tone for emotional support.
 
 Soft, therapeutic responses for emotional reassurance.
 
-![Calm Therapist Screenshot](https://github.com/rashmisjoshi/Mood-Buddy-Project-with-Open-AI-/blob/main/moodbuddy/2.%20Calm%20Therapist%20Screen.png)
+![Calm Therapist Screenshot](https://github.com/Chaitanya1704/Mood-Buddy-Project-with-OpenAI/blob/main/moodbuddy/calm%20therpist.png)
 
 ---
 
@@ -70,7 +70,7 @@ Soft, therapeutic responses for emotional reassurance.
 
 Motivational and positive tone to celebrate wins and encourage.
 
-![Uplifting Coach Screenshot (Part 1)](https://github.com/rashmisjoshi/Mood-Buddy-Project-with-Open-AI-/blob/main/moodbuddy/3.%20Uplifiting%20Coach%20Screen%201.png)
+![Uplifting Coach Screenshot (Part 1)](https://github.com/Chaitanya1704/Mood-Buddy-Project-with-OpenAI/blob/main/moodbuddy/Uplifting%20coach.png)
 
 
 ---
